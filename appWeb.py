@@ -1,6 +1,9 @@
 from flask import Flask, request, render_template_string, redirect, session, make_response
 import sqlite3
 import os
+import logging
+logging.basicConfig(filename='appweb.log', level=logging.INFO)
+
 
 app = Flask(__name__)
 
