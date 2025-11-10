@@ -660,4 +660,4 @@ def ver_financiero():
     for d in datos:
         html += f'<tr><td>{d[0]}</td><td>{d[1]}</td><td>${d[2]:,.2f}</td><td>{d[3]}</td><td>{d[4]}</td><td>{d[5]}</td></tr>'
     
-    html += '</table>
+    html += '</table>'
