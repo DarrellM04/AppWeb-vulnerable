@@ -203,7 +203,7 @@ def login():
         username = request.form.get('username')
         password = request.form.get('password')
         
-        # VULNERABILIDAD CRÍTICA: SQL Injection
+        # VULNERABILIDAD: SQL Injection
         query = f"SELECT * FROM usuarios WHERE username='{username}' AND password='{password}'"
         
         logging.warning(f"Intento de login - Usuario: {username} Password: {password}")
@@ -264,8 +264,7 @@ def login():
     </head>
     <body>
         <div class="login-box">
-            <h2>🔐 Iniciar Sesión</h2>
-            <div class="hint">💡 Usuario: admin | Contraseña: admin123</div>
+            <h2> Iniciar Sesión</h2>
             {"<div class='message " + tipo_mensaje + "'>" + mensaje + "</div>" if mensaje else ""}
             <form method="POST">
                 <input type="text" name="username" placeholder="Usuario" required>
@@ -583,36 +582,6 @@ def backup_db():
     <a href="/admin">← Volver</a>
     </div></body></html>'''
 
-# INFORMACIÓN DEL SISTEMA
-@app.route('/sistema')
-def sistema():
-    import sys
-    import platform
-    
-    registrar_log("Acceso a informacion del sistema")
-    
-    info = f'''
-    Python Version: {sys.version}
-    Platform: {platform.platform()}
-    Processor: {platform.processor()}
-    Working Directory: {os.getcwd()}
-    Flask Debug: {app.config['DEBUG']}
-    Secret Key: {app.secret_key}
-    '''
-    
-    # VULNERABILIDAD: Expone información sensible del sistema
-    return f'''<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Info Sistema</title>
-    <style>body{{font-family:Arial;padding:40px;background:#f5f5f5;}}
-    .info{{background:white;padding:30px;border-radius:10px;max-width:900px;margin:auto;}}
-    pre{{background:#f8f9fa;padding:15px;border-radius:5px;overflow-x:auto;}}</style>
-    </head><body><div class="info">
-    <h2>ℹ️ Información del Sistema</h2>
-    <pre>{info}</pre>
-    <h3>Variables de Entorno (primeras 5):</h3>
-    <pre>{dict(list(os.environ.items())[:5])}</pre>
-    <a href="/">← Volver</a>
-    </div></body></html>'''
-
 # LOGOUT
 @app.route('/logout')
 def logout():
@@ -653,15 +622,8 @@ def health():
     })
 
 if __name__ == '__main__':
-    print("=" * 60)
-    print("🚀 Iniciando aplicación vulnerable para auditoría")
-    print("=" * 60)
     print(f"📍 Servidor: http://0.0.0.0:5000")
     print(f"🗄️  Base de datos: empresa.db")
     print(f"📝 Logs: app_security.log")
-    print("=" * 60)
-    print("⚠️  ADVERTENCIA: Esta app contiene vulnerabilidades")
-    print("    Solo usar en entornos controlados de laboratorio")
-    print("=" * 60)
     
     app.run(host='0.0.0.0', port=5000, debug=True)
