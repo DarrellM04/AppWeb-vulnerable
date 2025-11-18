@@ -295,7 +295,7 @@ HOME_HTML = '''
     
     <div class="container">
         <div class="stats">
-            <h2 style="text-align: center; color: #333; margin-bottom: 20px;">📊 Estadísticas del Sistema</h2>
+            <h2 style="text-align: center; color: #333; margin-bottom: 20px;"> Estadísticas del Sistema</h2>
             <center>
                 <div class="stat-item">
                     <div class="stat-number">{{ total_estudiantes }}</div>
