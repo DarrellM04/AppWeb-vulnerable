@@ -284,12 +284,12 @@ HOME_HTML = '''
             <p>Sistema de Gestión Académica 2025</p>
         </div>
         <div class="nav-bar">
-            <a href="/">🏠 Inicio</a>
-            <a href="/login">🔐 Ingresar</a>
-            <a href="/estudiantes">👨‍🎓 Estudiantes</a>
-            <a href="/docentes">👨‍🏫 Docentes</a>
-            <a href="/notas">📊 Notas</a>
-            <a href="/reportes">📄 Reportes</a>
+            <a href="/"> Inicio</a>
+            <a href="/login"> Ingresar</a>
+            <a href="/estudiantes"> Estudiantes</a>
+            <a href="/docentes"> Docentes</a>
+            <a href="/notas"> Notas</a>
+            <a href="/reportes"> Reportes</a>
         </div>
     </div>
     
@@ -418,7 +418,7 @@ def login():
     </style></head>
     <body>
         <div class="login-box">
-            <h2>🔐 Acceso Docentes</h2>
+            <h2> Acceso Docentes</h2>
             <div class="hint">💡 Usuario: admin | Contraseña: Admin2025</div>
             {% if mensaje %}
             <div class="message {{ tipo }}">{{ mensaje }}</div>
@@ -458,7 +458,7 @@ def panel():
     <body>
         <div class="panel">
             <div class="welcome">
-                <h1>👨‍🏫 Bienvenido, {session['nombre']}</h1>
+                <h1> Bienvenido, {session['nombre']}</h1>
                 <p>Rol: {session['rol']} | Usuario: {session['usuario']}</p>
             </div>
             <h2>📋 Panel de Control</h2>
@@ -492,7 +492,7 @@ def estudiantes():
     </style></head>
     <body>
         <div class="container">
-            <h2>👨‍🎓 Lista de Estudiantes Activos</h2>
+            <h2> Lista de Estudiantes Activos</h2>
             <table>
                 <tr><th>Cédula</th><th>Nombre Completo</th><th>Grado</th><th>Sección</th>
                 <th>Email</th><th>Acudiente</th><th>Teléfono</th></tr>'''
@@ -538,7 +538,7 @@ def notas():
     </style></head>
     <body>
         <div class="container">
-            <h2>📊 Registro de Calificaciones</h2>
+            <h2> Registro de Calificaciones</h2>
             <table>
                 <tr><th>Estudiante</th><th>Materia</th><th>Docente</th>
                 <th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>Final</th><th>Periodo</th></tr>'''
@@ -577,7 +577,7 @@ def docentes():
     </style></head>
     <body>
         <div class="container">
-            <h2>👨‍🏫 Planta Docente</h2>
+            <h2> Planta Docente</h2>
             <table>
                 <tr><th>Cédula</th><th>Nombre Completo</th><th>Email</th>
                 <th>Especialidad</th><th>Rol</th><th>Fecha Ingreso</th></tr>'''
@@ -615,7 +615,7 @@ def reportes():
     </style></head>
     <body>
         <div class="container">
-            <h2>📄 Generación de Reportes</h2>
+            <h2> Generación de Reportes</h2>
             <div class="report-grid">
                 <div class="report-card">
                     <div class="report-icon">📋</div>
@@ -689,7 +689,7 @@ def backup():
     </style></head>
     <body>
         <div class="container">
-            <h2>💾 Gestión de Respaldos</h2>
+            <h2> Gestión de Respaldos</h2>
             <div class="warning">
                 <strong>⚠️ Importante:</strong> Los respaldos se realizan automáticamente cada día a las 3:00 AM.
             </div>
