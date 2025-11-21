@@ -424,12 +424,7 @@ def login():
     </style></head>
     <body>
         <div class="login-box">
-            <h2>🔐 Inicio Sesión</h2>
-            <div class="info">
-                <strong>Acceso para:</strong><br>
-                • Docentes y personal administrativo<br>
-                • Estudiantes
-            </div>
+            <h2> Inicio Sesión</h2>
             {% if mensaje %}
             <div class="message {{ tipo }}">{{ mensaje }}</div>
             {% endif %}
@@ -473,16 +468,16 @@ def panel():
         <body>
             <div class="panel">
                 <div class="welcome">
-                    <h1>👨‍🎓 Bienvenido, {session['nombre']}</h1>
+                    <h1> Bienvenido, {session['nombre']}</h1>
                     <p>Portal del Estudiante</p>
                 </div>
                 
-                <h2>📋 Mis Opciones</h2>
+                <h2>Mis Opciones</h2>
                 <div class="menu-grid">
-                    <div class="menu-item"><h3>📊</h3><a href="/estudiante/mis-notas">Mis Calificaciones</a></div>
-                    <div class="menu-item"><h3>📚</h3><a href="/estudiante/mis-materias">Mis Materias</a></div>
-                    <div class="menu-item"><h3>📄</h3><a href="/estudiante/boletin">Boletín de Notas</a></div>
-                    <div class="menu-item"><h3>🚪</h3><a href="/logout">Cerrar Sesión</a></div>
+                    <div class="menu-item"><a href="/estudiante/mis-notas">Mis Calificaciones</a></div>
+                    <div class="menu-item"><a href="/estudiante/mis-materias">Mis Materias</a></div>
+                    <div class="menu-item"><a href="/estudiante/boletin">Boletín de Notas</a></div>
+                    <div class="menu-item"><a href="/logout">Cerrar Sesión</a></div>
                 </div>
             </div>
         </body></html>
@@ -492,22 +487,22 @@ def panel():
     opciones = []
     
     # Opciones comunes para todos los docentes
-    opciones.append('<div class="menu-item"><h3>📊</h3><a href="/mis-notas">Mis Notas</a></div>')
-    opciones.append('<div class="menu-item"><h3>📄</h3><a href="/reportes">Reportes</a></div>')
+    opciones.append('<div class="menu-item"><a href="/mis-notas">Mis Notas</a></div>')
+    opciones.append('<div class="menu-item"><a href="/reportes">Reportes</a></div>')
     
     if rol in ['docente']:
-        opciones.append('<div class="menu-item"><h3>👨‍🎓</h3><a href="/mis-estudiantes">Mis Estudiantes</a></div>')
+        opciones.append('<div class="menu-item"><a href="/mis-estudiantes">Mis Estudiantes</a></div>')
     # Opciones para coordinador y admin
     if rol in ['coordinador', 'admin']:
-        opciones.append('<div class="menu-item"><h3>👨‍🎓</h3><a href="/estudiantes">Todos los Estudiantes</a></div>')
-        opciones.append('<div class="menu-item"><h3>👨‍🏫</h3><a href="/docentes">Personal Docente</a></div>')
-        opciones.append('<div class="menu-item"><h3>📊</h3><a href="/notas">Todas las Notas</a></div>')
+        opciones.append('<div class="menu-item"><a href="/estudiantes">Todos los Estudiantes</a></div>')
+        opciones.append('<div class="menu-item"><a href="/docentes">Personal Docente</a></div>')
+        opciones.append('<div class="menu-item"><a href="/notas">Todas las Notas</a></div>')
     
     # Opciones solo para admin
     if rol == 'admin':
-        opciones.append('<div class="menu-item"><h3>💾</h3><a href="/backup">Respaldos</a></div>')
-        opciones.append('<div class="menu-item"><h3>🗄️</h3><a href="/ver-base-datos">Base de Datos</a></div>')
-        opciones.append('<div class="menu-item"><h3>📋</h3><a href="/auditoria">Auditoría</a></div>')
+        opciones.append('<div class="menu-item"><a href="/backup">Respaldos</a></div>')
+        opciones.append('<div class="menu-item"><a href="/ver-base-datos">Base de Datos</a></div>')
+        opciones.append('<div class="menu-item"><a href="/auditoria">Auditoría</a></div>')
     
     opciones_html = '\n'.join(opciones)
     
@@ -536,7 +531,7 @@ def panel():
             <h2>📋 Panel de Control</h2>
             <div class="menu-grid">
                 {opciones_html}
-                <div class="menu-item"><h3>🚪</h3><a href="/logout">Cerrar Sesión</a></div>
+                <div class="menu-item"><a href="/logout">Cerrar Sesión</a></div>
             </div>
         </div>
     </body></html>
@@ -586,7 +581,7 @@ def estudiante_mis_notas():
     <body>
         <div class="container">
             <div class="header">
-                <h2>📊 Mis Calificaciones</h2>
+                <h2> Mis Calificaciones</h2>
                 <p>Estudiante: ''' + session['nombre'] + '''</p>
             </div>
             <table>
@@ -674,7 +669,7 @@ def estudiante_mis_materias():
     <body>
         <div class="container">
             <div class="header">
-                <h2>📚 Mis Materias</h2>
+                <h2> Mis Materias</h2>
                 <p>Grado: {estudiante['grado']} - Sección: {estudiante['seccion']}</p>
             </div>
             <div class="materia-grid">'''
@@ -820,7 +815,7 @@ def estudiantes():
     </style></head>
     <body>
         <div class="container">
-            <h2>👨‍🎓 Lista de Estudiantes Activos</h2>
+            <h2>Lista de Estudiantes Activos</h2>
             <table>
                 <tr><th>Cédula</th><th>Nombre Completo</th><th>Grado</th><th>Sección</th>
                 <th>Email</th><th>Acudiente</th><th>Teléfono</th></tr>'''
@@ -859,7 +854,7 @@ def mis_estudiantes():
     </style></head>
     <body>
         <div class="container">
-            <h2>👨‍🎓 Mis Estudiantes</h2>
+            <h2> Mis Estudiantes</h2>
             <table>
                 <tr><th>Nombre Completo</th><th>Grado</th><th>Sección</th><th>Email</th></tr>'''
     
@@ -996,7 +991,7 @@ def docentes():
     </style></head>
     <body>
         <div class="container">
-            <h2>👨‍🏫 Planta Docente</h2>
+            <h2> Planta Docente</h2>
             <table>
                 <tr><th>Cédula</th><th>Nombre Completo</th><th>Email</th>
                 <th>Especialidad</th><th>Fecha Ingreso</th></tr>'''
